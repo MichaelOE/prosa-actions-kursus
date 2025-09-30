@@ -62,6 +62,6 @@ jobs:
     - name: ls
       run: ls -la ci
     - name: build docker
-      run: bash ci/build-docker.sh
+      run: ci/build-docker.sh
     - name: push docker
-      run: bash ci/push-docker.sh
+      run: ci/push-docker.sh
