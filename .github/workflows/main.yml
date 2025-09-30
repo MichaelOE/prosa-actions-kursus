@@ -17,3 +17,15 @@ jobs:
           name: code
           path: .
           include-hidden-files: true
+      - name: Linting
+        needs: [Build]
+          steps:
+          - name: Download code
+            path: .
+            uses: actions/download-artifact@v4
+          - name: Run linting
+            path: .
+            uses: super-linter/super-linter/slim@v7
+            env:
+              DEFAULT_BRANCH: main
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
